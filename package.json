@@ -1,0 +1,29 @@
+{
+  "name": "tempapp",
+  "version": "1.0.0",
+  "description": "this apps purpose is to display measured temperature values",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tactx-io/tempapp.git"
+  },
+  "keywords": [
+    "mqtt",
+    "ds18b20",
+    "arduino",
+    "java",
+    "display"
+  ],
+  "author": "tactx-io",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tactx-io/tempapp/issues"
+  },
+  "homepage": "https://github.com/tactx-io/tempapp#readme",
+  "devDependencies": {
+    "electron": "^2.0.2"
+  }
+}
