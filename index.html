@@ -39,20 +39,24 @@
   </head>
   <body bgcolor=grey>
     <table>
+		<tr >
+			<td class="temperature" id="item0" >-</td>
+			<td class="depth">Aussentemperatur</td> 
+		</tr>
       <tr >
-        <td class="temperature" id="item0" >-</td>
+        <td class="temperature" id="item1" >-</td>
         <td class="depth">-0.5m</td> 
       </tr>
       <tr>
-        <td class="temperature" id="item1">-</td>
+        <td class="temperature" id="item2">-</td>
         <td  class="depth">-1.0m</td> 
       </tr>
       <tr>
-        <td class="temperature" id="item2">-</td>
+        <td class="temperature" id="item3">-</td>
         <td  class="depth">-1.5m</td> 
       </tr>
       <tr>
-        <td class="temperature" id="item3">-</td>
+        <td class="temperature" id="item4">-</td>
         <td  class="depth">-2.0m</td> 
       </tr>
   </table>
@@ -68,7 +72,7 @@
 
   //client = new Paho.MQTT.Client("iot.eclipse.org", 443 ,"myClientId2" + new Date().getTime());
   
-  client = new Paho.MQTT.Client("192.168.0.15", 1884,"myClientId" + new Date().getTime());
+ 	client = new Paho.MQTT.Client("iot.eclipse.org", Number(80) , "/ws", "myClientId2" + new Date().getTime());
 
   // set callback handlers
   client.onConnectionLost = function (responseObject) {
@@ -80,7 +84,7 @@
   // Called when the connection is made
   function onConnect(){
     console.log('Connected!');
-    client.subscribe('/tactx/unterach/wss/water-temperatures');
+    client.subscribe('tactx/unterach/wss/water-temperatures');
 
   }
 
@@ -99,21 +103,19 @@
   document.addEventListener("DOMContentLoaded", function(event) {
   });
   
-  function displayTemperature(temperatures) {
-    document.getElementById("item0").innerHTML = temperatures[0] + '°C';
-    document.getElementById("item1").innerHTML = temperatures[1] + '°C';
-    document.getElementById("item2").innerHTML = temperatures[2] + '°C';
-    document.getElementById("item3").innerHTML = temperatures[3] + '°C';
-  }
-  
-  //displayTemperature([22.25,25.56,21.25,15.25]);
-  
-  document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM fully loaded and parsed");
-  displayTemperature([22.25,25.56,21.25,15.25]);
-      document.body.style.backgroundColor = "black";
-    
-  });
+	function displayTemperature(temperatures) {
+		document.getElementById("item0").innerHTML = temperatures[0] + '°C';
+		document.getElementById("item1").innerHTML = temperatures[1] + '°C';
+		document.getElementById("item2").innerHTML = temperatures[2] + '°C';
+		document.getElementById("item3").innerHTML = temperatures[3] + '°C';
+		document.getElementById("item4").innerHTML = temperatures[4] + '°C';
+	}
+	document.addEventListener("DOMContentLoaded", function(event) {
+		console.log("DOM fully loaded and parsed");
+		displayTemperature(["--.--", "--.--", "--.--", "--.--", "--.--"]);
+		document.body.style.backgroundColor = "black";
+		
+	});
 
 
   </script>
