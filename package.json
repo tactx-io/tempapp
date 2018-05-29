@@ -25,5 +25,9 @@
   "homepage": "https://github.com/tactx-io/tempapp#readme",
   "devDependencies": {
     "electron": "^2.0.2"
+  },
+  "dependencies": {
+    "paho-mqtt": "^1.0.4",
+    "typeface-poiret-one": "0.0.54"
   }
 }
